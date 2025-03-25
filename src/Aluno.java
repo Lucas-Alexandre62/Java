@@ -1,20 +1,14 @@
 public class Aluno {
-    private String nome;
-    private int idade;
+    public int Id;
+    public String nome;
+    public int idade;
+    public String turma;
 
-    public String getNome(){
-        return nome;
-    }
-
-    public int getIdade(){
-        return idade;
-    }
-
-    public void setNome(String newNome){
-        this.nome = newNome;
-    }
-
-    public void setIdade(int newIdade){
-        this.idade = newIdade;
+    public Aluno(int i, String nome, int idade, String turma) {
+        this.Id = Id;
+        this.nome = nome;
+        this.idade = idade;
+        this.turma = turma;
     }
 }
+

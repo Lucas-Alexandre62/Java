@@ -3,29 +3,34 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        
-        Scanner scanner = new Scanner(System.in);
-        String[] nomeAlunos = new String[5];
-        int[] idadeAlunos = new int[5];
-        for(int i = 0; i < nomeAlunos.length; i++){
 
-            System.out.println("Digite o nome do aluno: ");
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Quantos alunos deseja cadastrar? ");
+        int qtdAluno = scanner.nextInt();
+        scanner.nextLine();
+        Aluno[] alunos = new Aluno[qtdAluno];
+
+        for(int i = 0; i < qtdAluno; i++){
+            System.out.println("Digite o nome: ");
             String nome = scanner.nextLine();
-            System.out.println("Digite a idade do aluno: ");
+            System.out.println("Digite a idade: ");
             int idade = scanner.nextInt();
             scanner.nextLine();
+            System.out.println("Digite a turma: ");
+            String turma = scanner.nextLine();
 
-            Aluno aluno = new Aluno();
-            aluno.setNome(nome);
-            aluno.setIdade(idade);
-            nomeAlunos[i] = aluno.getNome();
-            idadeAlunos[i] = aluno.getIdade();
+            alunos[i] = new Aluno(i, nome, idade, turma);
 
         }
-        
-        System.out.println(Arrays.toString(nomeAlunos));
-        System.out.println(Arrays.toString(idadeAlunos));
-        scanner.close();
-        
+        System.out.println("\n--- ALUNOS CADASTRADOS ---");
+        for (Aluno aluno : alunos) {
+            System.out.println("\nID: " + aluno.Id);
+            System.out.println("Nome: " + aluno.nome);
+            System.out.println("Idade: " + aluno.idade);
+            System.out.println("Turma: " + aluno.turma);
+        }
+
+
     }
 }
